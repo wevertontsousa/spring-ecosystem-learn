@@ -1,0 +1,19 @@
+{
+  "name": "Spring Ecosystem Learn",
+  "dockerComposeFile": ["./docker-compose.yaml"],
+  "service": "spring-ecosystem-learn",
+  "workspaceFolder": "${localWorkspaceFolder}",
+  "forwardPorts": [8081],
+  "shutdownAction": "stopCompose",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "Postman.postman-for-vscode",
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-spring-initializr",
+        "vscjava.vscode-spring-boot-dashboard"
+      ]
+    }
+  }
+}

@@ -1,0 +1,30 @@
+networks:
+  spring-ecosystem-learn:
+    name: spring-ecosystem-learn
+    driver: bridge
+    external: true
+
+services:
+  spring-ecosystem-learn:
+    container_name: spring-ecosystem-learn
+    image: wevertontsousa/amazoncorretto:alpine
+    env_file:
+      - ${APPLICATION_DOTENV_PATH}
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        - APPLICATION_HOME_PATH=${APPLICATION_HOME_PATH}
+        - APPLICATION_NAME=${APPLICATION_NAME}
+        - APPLICATION_PORT=${APPLICATION_PORT}
+        - APPLICATION_ROOT_PATH=${APPLICATION_ROOT_PATH}
+        - APPLICATION_USER_ID=${APPLICATION_USER_ID}
+        - APPLICATION_USERNAME=${APPLICATION_USERNAME}
+    volumes:
+      - ${APPLICATION_ROOT_PATH}
+      - ${APPLICATION_SSH_PATH}
+    networks:
+      - spring-ecosystem-learn
+    ports:
+      - ${APPLICATION_PORTS}
+    tty: true
